@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌞 Temperature Converter 🌞</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url("temp2.jpeg") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh; /* Ensure the container fills the viewport height */
+        }
+        h1 {
+            text-shadow: 3px 3px 5px #333;
+            font-size: 36px; /* Increased font size */
+            font-family: "Your Attractive Font", sans-serif; /* Replace "Your Attractive Font" with your desired font */
+            white-space: nowrap;
+            margin: 0; /* Remove default margin for h1 */
+        }
+        label, input {
+            display: block;
+            margin: 10px 0; /* Add vertical spacing between rows */
+            width: 100%;
+        }
+        .input-box, .result-box {
+            width: 100%;
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 5px;
+            width: 50%;
+            background-color:  #9a8bb5;
+            color: #0e0c07;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px 0; /* Add vertical spacing between rows */
+        }
+        #result {
+            font-size: 24px;
+            text-align: left;
+            margin-top: 10px; /* Add spacing between the result section and the button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌞 Temperature Converter 🌞</h1>
+        <label for="numericalInput">
+            • Enter a Temperature to convert:
+        </label>
+        <input type="number" id="numericalInput" class="input-box">
+        <button onclick="convertTemperature()">Convert</button>
+        <div id="result" style="display: flex; flex-direction: column; align-items: center;">
+            <label for="celsiusResult">
+                • Celsius:
+            </label>
+            <input class="result-box" id="celsiusResult" readonly>
+            <label for="fahrenheitResult">
+                • Fahrenheit:
+            </label>
+            <input class="result-box" id="fahrenheitResult" readonly>
+            <label for="kelvinResult">
+                • Kelvin:
+            </label>
+            <input class="result-box" id="kelvinResult" readonly>
+            <label for="rankineResult">
+                • Rankine:
+            </label>
+            <input class="result-box" id="rankineResult" readonly>
+        </div>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            const input = parseFloat(document.getElementById('numericalInput').value);
+
+            const celsius = input;
+            const fahrenheit = (input * 9/5) + 32;
+            const kelvin = input + 273.15;
+            const rankine = (input + 273.15) * 9/5;
+
+            document.getElementById('celsiusResult').value = `🌡️ ${celsius.toFixed(2)}°C`;
+            document.getElementById('fahrenheitResult').value = `🌡️ ${fahrenheit.toFixed(2)}°F`;
+            document.getElementById('kelvinResult').value = `🌡️ ${kelvin.toFixed(2)}K`;
+            document.getElementById('rankineResult').value = `🌡️ ${rankine.toFixed(2)}°Ra`;
+        }
+    </script>
+</body>
+</html>
